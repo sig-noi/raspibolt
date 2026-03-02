@@ -630,39 +630,6 @@ $ sudo systemctl daemon-reload
 
 ---
 
-## Joinmarket-ng
-*** explanation etc ***
-
-### Create a dedicated user and a data directory
-
-* Create the “joinmarket” user, and make it a member of the “bitcoin” and "debian-tor" groups
-
-```
-$ sudo adduser --disabled-password --gecos "" joinmarket-ng
-$ sudo usermod -a -G bitcoin,debian-tor joinmarket-ng
-```
-
-* Create a JoinMarket data directory
-
-```
-$ sudo mkdir /data/joinmarket-ng
-$ sudo chown -R joinmarket-ng:joinmarket-ng /data/joinmarket-ng
-```
-
-* Open a "joinmarket" user session
-
-```
-$ sudo su - joinmarket-ng
-```
-
-* Create a symbolic link pointing to the joinmarket data directory
-
-```
-$ ln -s /data/joinmarket-ng /home/joinmarket-ng/.joinmarket-ng
-```
-
---- UNTESTED ---
-
 ## LND
 
 LND only supports a single active network at a time, so signet requires a fully independent second instance with its own data directory, configuration file, and systemd unit. The LND binary itself is shared — only the runtime data and config differ.
